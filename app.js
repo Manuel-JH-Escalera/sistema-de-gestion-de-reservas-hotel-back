@@ -1,5 +1,6 @@
 const express = require("express");
 const oracledb = require("oracledb");
+const cors = require('cors'); //arreglando error de cors
 require("dotenv").config();
 
 const hotelRoutes = require("./routes/hotel");
@@ -9,6 +10,8 @@ const reservaRoutes = require("./routes/reserva");
 
 const app = express();
 app.use(express.json());
+
+app.use(cors()); //arreglando error de cors
 
 async function initialize() {
   try {
